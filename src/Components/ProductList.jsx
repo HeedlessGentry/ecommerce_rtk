@@ -13,7 +13,15 @@ const ProductList = () => {
     <div className="product-list">
       <h2 className="product-list-title">Products</h2>
       <ul className="product-list-items">
-     
+        {/*To show product list in the front end we apply map() method with <ul> tag. We then implement the redux logic in the CartSlice.jsx file */}
+        {products.map(product => (
+            <li key={product.id} className='product-list-item'>
+                <span>{product.name} - ${product.price}</span>
+                <button>
+                    Add to Cart
+                </button>
+            </li>
+        ))}
       </ul>
     </div>
   );
