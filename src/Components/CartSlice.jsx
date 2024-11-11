@@ -10,7 +10,7 @@ const CartSlice = createSlice({
 name: 'cart', 
 initialState,
 reducers: { //create five functions out of which two are used to handle addition and removal of products in the shopping cart, one to clear all the items at once, and other two are to increase and decrease the quantity.
-addItemCart(state, action) { //It takes two parameters: state (current state of the slice) and action (the dispatched action containing the payload).
+addItemToCart(state, action) { //It takes two parameters: state (current state of the slice) and action (the dispatched action containing the payload).
     const existingItem = state.cartItems.find(item => item.id === action.payload.id); //It first checks if the item already exists in the cart by searching for its ID within state.cartItems.
     if (existingItem) {
         existingItem.quantity += 1;
@@ -39,7 +39,7 @@ decreaseItemQuantity(state, action) {
 } 
 });
 export const {
-    addItemCart,
+    addItemToCart,
     removeItemFromCart,
     clearCart,
     increaseItemQuantity,
